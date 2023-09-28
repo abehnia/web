@@ -3,17 +3,34 @@ name = "web"
 version = "0.1.0"
 edition = "2021"
 
+[lib]
+name = "weblib"
+
+[[bin]]
+name = "web"
+
 [dependencies]
+anyhow = { version = "1.0.75", features = ["backtrace"] }
 axum = { version = "0.6.20", features = ["multipart", "http2", "tracing"] }
+chrono = { version = "0.4.31", features = ["serde"] }
 csv-async = { version = "1.2.6", features = ["tokio"] }
 derive_builder = { version = "0.12.0", features = ["clippy"] }
 futures = "0.3.28"
+lazy_static = "1.4.0"
+project-root = "0.2.2"
 rust_decimal = { version = "1.32.0", features = ["serde-with-float", "serde-with-str", "serde-with-arbitrary-precision"] }
 rust_decimal_macros = "1.32.0"
+sea-query = { version = "0.30.2", features = ["with-uuid", "with-rust_decimal", "with-json"] }
+sea-query-binder = { version = "0.5.0", features = ["sqlx", "sqlx-sqlite", "with-uuid", "with-rust_decimal", "runtime-tokio-native-tls", "serde_json", "with-json", "chrono"] }
 serde = { version = "1.0.188", features = ["derive"] }
 serde_json = "1.0.107"
-sqlx = { version = "0.7.1", features = ["runtime-tokio", "tls-rustls", "sqlite", "json"] }
+sqlx = { version = "0.7.1", features = ["runtime-tokio", "tls-rustls", "sqlite", "json", "uuid", "rust_decimal", "chrono"] }
+thiserror = "1.0.48"
 tokio = { version = "1.32.0", features = ["full", "tracing"] }
 tracing = "0.1.37"
 tracing-subscriber = "0.3.17"
 uuid = { version = "1.4.1", features = ["serde", "v4"] }
+
+[dev-dependencies]
+hyper = "0.14.27"
+tower = { version = "0.4.13", features = ["tokio", "tracing"] }

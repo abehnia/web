@@ -38,11 +38,14 @@
             cargo-deny
             cargo-edit
             cargo-watch
-            rust-analyzer
+            cargo-nextest
+            curl
+            docker
+            glow
             gh
             sqlx-cli
             sqlite
-            curl
+            rust-analyzer
           ];
         };
       });
