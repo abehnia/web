@@ -20,6 +20,11 @@ The solution was tested on NixOS and the Ubuntu docker. To run the solution on U
 
 `cargo run -p web`
 
+### Request
+
+`curl http://127.0.0.1:5000/report`
+`curl -X POST http://127.0.0.1:5000/transactions -F "data=@data.csv"`
+
 ## Approach & Assumptions
 
 General: Web is a web server that is backed by SQLite (with WAL) to manage the reports. Each transaction is added to a transaction table and for each CSV a new report entry is added to the report table. To obtain the report, the server obtains a list of all the reports and performs a sum over all of them.
